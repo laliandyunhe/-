@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.xutang.app'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.xutang.app"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    // 签名信息放在 keystore.properties（已在 .gitignore 里，不进仓库）。没有该文件时用 Android 默认 debug 签名
+    def ksFile = rootProject.file('keystore.properties')
+    def ks = new Properties()
+    if (ksFile.exists()) ksFile.withInputStream { ks.load(it) }
+
+    signingConfigs {
+        if (ksFile.exists()) {
+            release {
+                storeFile file(ks['storeFile'])
+                storePassword ks['storePassword']
+                keyAlias ks['keyAlias']
+                keyPassword ks['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        debug { if (ksFile.exists()) signingConfig signingConfigs.release }
+        release {
+            minifyEnabled false
+            if (ksFile.exists()) signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    androidResources {
+        noCompress 'mp3', 'ogg', 'm4a'
+    }
+}
+
+dependencies {
+    // 无外部依赖：assets 由 MainActivity 自己拦截返回，不需要 androidx.webkit
+}
