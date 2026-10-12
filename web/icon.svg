@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>Candy Icon</title>
+  <defs>
+    <clipPath id="body">
+      <circle cx="256" cy="256" r="118"/>
+    </clipPath>
+  </defs>
+
+  <!-- background -->
+  <rect width="512" height="512" fill="#FFE3EC"/>
+
+  <!-- left wrapper: ruffled fan -->
+  <path d="M146 256 L64 176 Q40 208 62 224 Q36 256 62 288 Q40 304 64 336 Z" fill="#FFB36B" stroke="#FFB36B" stroke-width="10" stroke-linejoin="round"/>
+
+  <!-- right wrapper: ruffled fan -->
+  <path d="M366 256 L448 176 Q472 208 450 224 Q476 256 450 288 Q472 304 448 336 Z" fill="#FFB36B" stroke="#FFB36B" stroke-width="10" stroke-linejoin="round"/>
+
+  <!-- candy body -->
+  <circle cx="256" cy="256" r="118" fill="#FF6F9C"/>
+  <g clip-path="url(#body)">
+    <path d="M120 190 L210 110 L262 110 L120 236 Z" fill="#FF93B5"/>
+    <path d="M120 300 L330 110 L382 110 L120 346 Z" fill="#FF93B5"/>
+    <path d="M200 410 L400 230 L400 284 L254 410 Z" fill="#FF93B5"/>
+  </g>
+</svg>

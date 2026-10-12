@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#000000">
+<title>AI 文字冒险</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="hamb" aria-label="打开侧边栏" aria-expanded="false">☰</button>
+<div id="scrim" hidden></div>
+<aside id="side">
+  <div class="row" id="side-head">
+    <b style="flex:1">状态</b>
+    <button id="side-close" aria-label="收起侧边栏">×</button>
+  </div>
+  <div id="pname">—</div>
+  <div id="stats"></div>
+  <div id="chars"></div>
+  <div id="route"></div>
+  <nav>
+    <button data-act="settings">设置</button>
+    <button data-act="routes">路线预览</button>
+    <button data-act="archive">剧情档案</button>
+    <button data-act="title">标题</button>
+    <button data-act="terms">免责声明</button>
+  </nav>
+  <div id="music-now"></div>
+</aside>
+<main id="main"></main>
+
+<dialog id="dlg"><form method="dialog" id="dlg-body"></form></dialog>
+<audio id="bgm" loop></audio>
+<input type="file" id="file-in" accept=".json" hidden>
+
+<script src="prompts.js"></script>
+<script src="music.js"></script>
+<script src="core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
